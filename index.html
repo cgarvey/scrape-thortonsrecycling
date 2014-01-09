@@ -19,7 +19,7 @@
           <a id="forkme_banner" href="https://github.com/cgarvey/scrape-thortonsrecycling">View on GitHub</a>
 
           <h1 id="project_title">Thortons Recycling Scraper</h1>
-          <h2 id="project_tagline">A simple script to parse HTML, for bin collection history, from Irish waste collection company Thortons Recycling.</h2>
+          <h2 id="project_tagline">Easily retrieve your Thornton's Recycling usage data for pasting in to your own spreadsheet to further analyse.</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/cgarvey/scrape-thortonsrecycling/zipball/master">Download this project as a .zip file</a>
@@ -32,10 +32,31 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h3>Welcome!</h3>
+		<p>This open source project, hosted on <a href="https://github.com/cgarvey/scrape-thortonsrecycling/tree/master" title="Link to project on GitHub">GitHub</a> allows you to easily extract your bin collection history data from Thornton's online account site. Thornton's Recycling is an Irish refuse &amp; recycling collection company operating in Dublin and parts of the east. You're welcome to browse the code, and use the included Perl script to parse that data, or you can use the Bookmarklet below (no coding, or command line required!).</p>
 
-<p>To get started, download the repository (links above), and see the sample_data to help you get started.</p>
+		<h3>Using the Bookmarklet</h3>
+		<p>Follow these simple instructions to get your data for easy spreadsheet import:</p>
+		<ul>
+			<li>Drag the below bookmarklet link to your borwser's bookmarks toolbar:<br />
+				<a title="TestMark" href='javascript:(function(e,a,g,h,f,c,b,d){if(!(f=e.jQuery)||g>f.fn.jquery||h(f)){c=a.createElement("script");c.type="text/javascript";c.src="https://ajax.googleapis.com/ajax/libs/jquery/"+g+"/jquery.min.js";c.onload=c.onreadystatechange=function(){if(!b&&(!(d=this.readyState)||d=="loaded"||d=="complete")){h((f=e.jQuery).noConflict(1),b=1);f(c).remove()}};a.documentElement.childNodes[0].appendChild(c)}})(window,document,"1.3.2",function($,L){var elQ=$("#Content_MainContent_boxBinCollectionHistory_gridInvoices_GridViewPager1_DropDownListPageSize");if(elQ&&elQ[0]){var val=elQ.find(":selected").text();if("20"!=val)$(".header").html("<div style=\"color: #fff; font-size: 2em; font-style: italic;\">Updating (20 rows per page), one moment...</div>"),elQ.val("20").change();else{var elT=$("#Content_MainContent_boxBinCollectionHistory_gridInvoices");if(elT&&elT[0]){var s="";elT.find(".grdRow, .grdAltRow").each(function(idx,el){if(elTDs=$(el).children("td"),elTDs&&6==elTDs.length){var dt=$(elTDs[0]).text();dt=dt.replace(" 12:00 AM",""),s+=dt+"\t"+$(elTDs[1]).text()+"\t",s+="General Waste"==$(elTDs[2]).text()?"General":"Compost"==$(elTDs[2]).text()?"Compost":"General Recycling"==$(elTDs[2]).text()?"Recycling":"n/a",s+="\n"}});var win=window.open(null,"_blank","width=400,height=400");if(win){win.document.write("<html><head><title>Thorntons Scraped Data</title><head><body><h2>Scraped Data:</h2><form><p>Header Row:</p><textarea style=\"width: 100%;\" rows=\"1\">Date\tWeight\tType\n</textarea><br /><p>Data:</p><textarea style=\"width: 100%;\" rows=\"10\">"+s+"</textarea><br/></form></body></html>");var elA=$("#Content_MainContent_boxBinCollectionHistory_gridInvoices_GridViewPager1_ImageButtonNext");if(elA&&elA[0]){$(".header").html("<div style=\"color: #fff; font-size: 2em; font-style: italic;\">Retrieving next page of results, one moment...</div>");var href=elA.attr("href");href=href.replace("javascript:",""),eval(href)}}else alert("Popup windows appear to be blocked, so I could not display the scraped data.")}}}});'>
+				<div style="display: inline-block; border: 2px solid #0090ff; background-color: #ddeeff; padding: 10px 20px; margin: 20px auto; width: 300px; text-align: center; font-size: 2.5em;">
+				Thorntons
+				</div>
+				</a> 
+			</li>
+			<li><a href="https://www.thorntonsonlineaccounts.com/WebAccess/">Login</a> to Thornton's online accounts site.</li>
+			<li>Visit the <a href="https://www.thorntonsonlineaccounts.com/WebAccess/Account/BinCollectionHistory.aspx">Bin Collection History</a> page.</li>
+			<li>Click on your new &quot;Thorntons&quot; bookmarklet in your browser's toolbar.</li>
+			<li>The first time you click it, the page will refresh (to load 20 records per page, by default).</li>
+			<li>Each subsquent click of the bookmarklet will present the parsed data in a popup window for you to easily copy, and move on to the next page of results.</li>
+			<li>Once the next page has loaded, click the bookmarklet again, and repeat this (copying the data, each time) for each page of results.</li>
+		</ul>
+		<p>You can paste each page's data in to a spreadsheet (like Google Drive, Microsoft Excel, LibreOffice Calc, etc.). From there you can easily calculate totals, averages, etc.</p>
 
-<p>If you have any issues, contact <a href="https://github.com/cgarvey" class="user-mention">@cgarvey</a>.</p>
+		<h3>Perl Script</h3>
+		<p>If you visit the <a href="https://github.com/cgarvey/scrape-thortonsrecycling">GitHub page</a> for this project, or download it above, you can use a perl script to scrape the data from the command line. Instructions are 
+		<h3>Get involved!</h3>
+		<p>Grab a copy of the source code, use pull requests to improve it, or report any bugs/issues, on the <a href="https://github.com/cgarvey/scrape-thortonsrecycling">GitHub page</a>.</p>
       </section>
     </div>
 
@@ -46,8 +67,5 @@
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-
-    
-
   </body>
 </html>
