@@ -1,12 +1,21 @@
 Description
 ===========
-This is a basic script to parse the bin lift history for Irish residential waste collection customers of https://www.thorntonsonlineaccounts.com/ (Dublin, Kildare, Meath & Wicklow areas).
+This is a basic script, and bookmarklet, to parse the bin lift history for Irish residential waste collection customers of https://www.thorntonsonlineaccounts.com/ (Dublin, Kildare, Meath & Wicklow areas).
 
-The script will process a file which is the raw HTML output of the paged **Bin Collection History** feature on the site. It will output a tabbed summary (date, weight and bin category) suitable for exporting to Excel, Google Docs, etc.
+Both the script and bookmarklet will extract data from the **Bin Collection History** page and make it available in a format that you can copy-and-paste straight in to a spreadsheet (Excel, LibreOffice Calc, Googl Drive, etc.).
 
 Usage
 =====
-*  Visit the **Bin Collection history** page.
+I recommend using the bookmarklet, over the script, as it's easier to use.
+
+Bookmarklet
+-----------
+*  Visit the <a href="http://cgarvey.github.io/scrape-thortonsrecycling/">project page</a> to access the bookmarklet, and its instructions.
+
+Script
+------
+*  <a href="https://www.thorntonsonlineaccounts.com/WebAccess/">Login</a> to Thornton's online accounts site.
+*  Visit the <a href="https://www.thorntonsonlineaccounts.com/WebAccess/Account/BinCollectionHistory.aspx">Bin Collection History</a> page.
 *  For each page of available history, save the HTML (HTML Only, not a full web page).
 *  For each saved HTML file, call the `parse.pl` script using the filename as an argument.
 *  Copy the contents of the specified output file to your destination. It's tab-delimited, so it can be easily pasted in to Excel, OpenOffice, Numbers, LibreOffice, and Google Docs (Spreadsheet).
