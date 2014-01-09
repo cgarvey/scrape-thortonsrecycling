@@ -13,7 +13,7 @@ javascript:(function(e,a,g,h,f,c,b,d){if(!(f=e.jQuery)||g>f.fn.jquery||h(f)){c=a
 		var val = elQ.find(":selected").text();
 		if( val != "20" ) {
 			DEBUG && console.log( "Changing to 20" );
-			$(".header").html( "<div style='color: #fff; font-size: 2em; font-style: italic;'>Updating (20 rows per page), one moment...</div>" );
+			$(".header").html( "<div style=\"color: #fff; font-size: 2em; font-style: italic;\">Updating (20 rows per page), one moment...</div>" );
 			elQ.val( "20" ).change();
 		}
 		else {
@@ -39,11 +39,11 @@ javascript:(function(e,a,g,h,f,c,b,d){if(!(f=e.jQuery)||g>f.fn.jquery||h(f)){c=a
 				DEBUG && console.log( "Stage 3: Displaying scraped data" );
 				var win = window.open( null, "_blank", "width=400,height=400" );
 				if( win ) {
-					win.document.write( "<html><head><title>Thorntons Scraped Data</title><head><body><h2>Scraped Data:</h2><form><p>Header Row:</p><textarea style='width: 100%;' rows='1'>Date\tWeight\tType\n</textarea><br /><p>Data:</p><textarea style='width: 100%;' rows='10'>" + s + "</textarea><br/></form></body></html>" );
+					win.document.write( "<html><head><title>Thorntons Scraped Data</title><head><body><h2>Scraped Data:</h2><form><p>Header Row:</p><textarea style=\"width: 100%;\" rows=\"1\">Date\tWeight\tType\n</textarea><br /><p>Data:</p><textarea style=\"width: 100%;\" rows=\"10\">" + s + "</textarea><br/></form></body></html>" );
 					var elA = $("#Content_MainContent_boxBinCollectionHistory_gridInvoices_GridViewPager1_ImageButtonNext" );
 					if( elA && elA[0] ) {
 						DEBUG && console.log( "Stage 4: Navigating to next page of results." );
-						$(".header").html( "<div style='color: #fff; font-size: 2em; font-style: italic;'>Retrieving next page of results, one moment...</div>" );
+						$(".header").html( "<div style=\"color: #fff; font-size: 2em; font-style: italic;\">Retrieving next page of results, one moment...</div>" );
 						var href = elA.attr( "href" );
 						href = href.replace( "javascript:", "" );
 						eval( href );
